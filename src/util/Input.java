@@ -42,54 +42,21 @@ public class Input {
         }
     }
 
-//    public getDouble(double min, double max) {
-//        double userDouble = getDouble();
-//        if (userDouble >= min && userDouble <= max) {
-//            return userDouble;
-//        } else {
-//            System.out.println("Out of range; please enter a number between " + min + " and " + max);
-//            return getDouble(min, max);
-//        }
-//    }
-
-
-
-
-
-
-
-
-
-
-//    int getInt(int min, int max)
-//    int getInt()
-//    double getDouble(double min, double max)
-//    double getDouble()
-
-    public static void main(String[] args) {
-        System.out.println("Hello, and welcome to my class. What's your name?");
-        Input input = new Input();
-        String userInput= input.getString();
-        System.out.println("Hi, " + userInput);
-        System.out.println("Would you like to continue?");
-        boolean willContinue = input.yesNo();
-        if (willContinue) {
-            System.out.println("Continuing...");
+    public int getInt(int min, int max) {
+        int userInt = getInt();
+        if (userInt >= min && userInt <= max) {
+            return userInt;
         } else {
-            System.out.println("Exiting...");
+            System.out.println("Out of range; please enter a number between " + min + " and " + max);
+            return getInt(min, max);
         }
-
-        System.out.println("Please enter a double.");
-        double userDouble = input.getDouble();
-        System.out.println("Your lucky double is: " + userDouble);
-
-//        System.out.println("Please enter a double");
-//        double userDouble = input.getDouble(1, 5);
-//        System.out.println("Your lucky double is: " + userDouble);
-
     }
+
+
+
 
     public int getInt(int i) {
         return 0;
     }
+
 }

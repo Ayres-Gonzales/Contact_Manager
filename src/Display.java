@@ -1,6 +1,8 @@
+import java.io.IOException;
+
 public class Display {
 
-//    private static boolean executeUserChoice(int choice) {
+//    private static boolean executeUserChoice(int choice) throws IOException {
 //        boolean continueRunning = true;
 //
 //        switch (choice) {
@@ -10,14 +12,14 @@ public class Display {
 //                }
 //                break;
 //            case 2:
-//                // Console.addNewContact():
+//                 Console.addNewContact();
 //                break;
 //
 //            case 3:
-//                //Console.searchByName();
+//                Console.modifyExistingContact();
 //                break;
 //            case 4:
-//                //Console.deleteContact();
+//                Console.deleteContact();
 //                break;
 //            case 5:
 //

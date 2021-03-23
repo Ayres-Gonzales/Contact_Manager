@@ -13,20 +13,55 @@ public class ContactApp {
 
     public static void main(String[] args) throws IOException {
 
+        boolean running = true;
+
+        while (running) {
+            System.out.println(returnMenuDisplay());
+
+            int userResponse = promptUserForChoice();
+            running = executeUserChoice(userResponse);
+        }
+
+
 //        Console.addNewContact();
-        Console.displayAll();
-        Console.deleteContact();
-
-
+//        Console.displayAll();
+//        Console.deleteContact();
 //        Console.modifyExistingContact();
+    }
 
+        private static boolean executeUserChoice ( int choice) throws IOException {
+            boolean continueRunning = true;
+
+            switch (choice) {
+
+                case 1:
+                    Console.displayAll();
+
+            break;
+            case 2:
+                Console.addNewContact();
+                break;
+
+            case 3:
+                Console.modifyExistingContact();
+                break;
+            case 4:
+                Console.deleteContact();
+                break;
+            case 5:
+
+                continueRunning = false;
+                break;
+        }
+
+        return continueRunning;
 
     }
 
 
-
     private static String returnMenuDisplay() {
-        String choices = "What would you like to do?\n" +
+
+        String choices = "Welcome to the Contacts Manager!\n What would you like to do?\n" +
                 "\n" +
                 "1. View contacts." +
                 "2. Add a new contact." +
@@ -41,13 +76,15 @@ public class ContactApp {
     private static int promptUserForChoice() {
 
         Input input = new Input();
+
         System.out.println("Enter your choice: ");
-        int response = input.getInt(0);
+
+        int response = input.getInt(1, 5);
 
         return response;
     }
-
 }
+
 
 
 //    Marge Simpson | 210-222-2222
