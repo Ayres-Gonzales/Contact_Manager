@@ -11,11 +11,11 @@ import java.util.Scanner;
 
 public class ContactApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Console.addNewContact();
+//        Console.addNewContact();
         Console.displayAll();
-        Console.deleteContact("Jackie");
+        Console.deleteContact();
 
 
 //        Console.modifyExistingContact();
@@ -48,3 +48,8 @@ public class ContactApp {
     }
 
 }
+
+
+//    Marge Simpson | 210-222-2222
+//        Homer Simpson | 210-444-4444
+//        Bart Simpson | 210-333-3333

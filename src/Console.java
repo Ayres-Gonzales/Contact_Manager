@@ -23,8 +23,8 @@ public class Console {
             ioException.printStackTrace();
         }
 
-        for (String name : lines) {
-            System.out.println(name);
+        for (String contact : lines) {
+            System.out.println(contact);
         }
     }
 
@@ -32,18 +32,19 @@ public class Console {
 /// Adds a new contact
 
     public static void addNewContact() {
-        List<String> names = new ArrayList<>();
+        List<String> contacts = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter a name");
-        String inputName = sc.nextLine();
-        names.add(inputName);
+        System.out.println("Please enter the first name and last name of the person you would like to add, followed " +
+                "by their phone number: ");
+        String inputContact = sc.nextLine();
+        contacts.add(inputContact);
         try {
-            Files.write(p, names, StandardOpenOption.APPEND);
+            Files.write(p, contacts, StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for (String name : names) {
-            System.out.println(name);
+        for (String contact : contacts) {
+            displayAll();
         }
     }
 
@@ -84,16 +85,28 @@ public class Console {
 //        return p;
 //    }
 
-    public static void deleteContact(String name) {
+    public static void deleteContact() throws IOException {
+
+        List<String> lines = Files.readAllLines(Paths.get("FileIo", "contacts.txt"));
+        List<String> modifiedList = new ArrayList<>();
         Path testFilePath = Paths.get("FileIo", "contacts.txt");
-        try {
-            List<String> names = Files.readAllLines(testFilePath);
-            names.remove(name);
-            Files.write(testFilePath, names);
-        } catch (IOException e) {
-            e.printStackTrace();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter the fist name of the contact you would like to delete: ");
+        String inputContact = sc.nextLine();
+        for (String line : lines) {
+            if (line.contentEquals(inputContact)) {
+                modifiedList.remove(line);
+                continue;
+            }
+            try {
+                List<String> contacts = Files.readAllLines(testFilePath);
+                contacts.remove(inputContact);
+                Files.write(testFilePath, contacts);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            displayAll();
+
         }
-
     }
-
 }
