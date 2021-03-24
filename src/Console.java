@@ -28,7 +28,6 @@ public class Console {
 
     }
 
-
 /// Adds a new contact
 
     public static void addNewContact() {
@@ -46,6 +45,8 @@ public class Console {
         displayAll();
     }
 
+    /// Searches for contact
+
     public static void searchForContact() throws IOException {
         Path testFilePath = Paths.get(String.valueOf(p));
         Scanner sc = new Scanner(System.in);
@@ -57,7 +58,6 @@ public class Console {
                 String[] splitString = line.split(" ");
                 if (splitString[0].equalsIgnoreCase(userInput)) {
                     System.out.println(splitString[0] + " " + splitString[1] + "\t | " + splitString[2]);
-//                    modifyExistingContact();
                 }
             }
         } catch (IOException e) {
@@ -65,39 +65,10 @@ public class Console {
         }
     }
 
-
-///Modify existing contact
-//
-//    public static void modifyExistingContact() throws IOException {
-//        Path testFilePath = Paths.get("FileIo", "contacts.txt");
-//        Scanner sc = new Scanner(System.in);
-//        String userInput = sc.nextLine();
-//        System.out.println("Would you like to modify the contact info? (y/n)");
-//        String toModify = sc.nextLine().toLowerCase();
-//        if (toModify.equals("y")) {
-//            System.out.println("Please enter the contacts full information with desired edits: ");
-//            String modifiedResponse = sc.nextLine().toLowerCase();
-//        }
-//        try {
-//            List<String> lines = Files.readAllLines(testFilePath);
-//            for (String line : lines) {
-//                String[] splitString = line.split(" ");
-//                if (splitString[0].contains(userInput)) {
-//                    lines.remove(line);
-////                    lines.add(modifiedResponse);
-//                    Files.write(testFilePath, lines);
-//                }
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
 /// Deletes a contact
 
     public static void deleteContact() throws IOException {
-        Path testFilePath = Paths.get("FileIo", "contacts.txt");
+        Path testFilePath = Paths.get(String.valueOf(p));
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter the first name of the contact you would like to delete: ");
         String inputContact = sc.nextLine();
@@ -115,5 +86,38 @@ public class Console {
         }
         displayAll();
     }
-
 }
+
+    ///Modify existing contact
+
+//    public static void modifyExistingContact() throws IOException {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Please enter the contacts new full information with desired edits: ");
+//        String editContact = sc.nextLine().toLowerCase();
+//        System.out.println();
+//        List<String> lines = new ArrayList<>();
+//        for (String line : lines) {
+//            if (line.equals(userInput)) {
+//                lines.add(editContact);
+//                continue;
+//            }
+//            lines.add(line);
+//        }
+//
+//        Files.write(Paths.get(String.valueOf(p)), lines);
+//    }
+//        try {
+//            List<String> lines = Files.readAllLines(testFilePath);
+//            for (String line : lines) {
+//                String[] splitString = line.split(" ");
+//                if (splitString[0].contains(userInput)) {
+//                    lines.remove(line);
+////                    lines.add(modifiedResponse);
+//                    Files.write(testFilePath, lines);
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+

@@ -7,8 +7,6 @@ public class ContactApp {
 
     public static void main(String[] args) throws IOException {
 
-
-
         boolean running = true;
 
         while (running) {
@@ -73,8 +71,3 @@ public class ContactApp {
         return response;
     }
 }
-
-
-//Marge Simpson | 210-222-2222
-//Homer Simpson | 210-444-4444
-//Bart Simpson | 210-333-3333
