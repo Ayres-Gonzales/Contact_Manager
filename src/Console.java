@@ -13,7 +13,7 @@ public class Console {
 /// Displays all contacts
 
     public static void displayAll() {
-        List<String> lines = new ArrayList<>();
+        List<String> lines;
         try {
             lines = Files.readAllLines(p);
             for (String contact : lines) {
@@ -107,8 +107,8 @@ public class Console {
                 String[] splitString = line.split(" ");
                 if (splitString[0].equalsIgnoreCase(inputContact)) {
                     lines.remove(line);
-                    Files.write(testFilePath, lines);
                 }
+                Files.write(testFilePath, lines);
             }
         } catch (IOException e) {
             e.printStackTrace();
