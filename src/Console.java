@@ -39,9 +39,7 @@ public class Console {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for (String contact : contacts) {
             displayAll();
-        }
     }
 
 
@@ -78,23 +76,39 @@ public class Console {
 
 /// Deletes a contact
 
+//    public static void deleteContact() {
+//        Path p = Paths.get("FileIo", "contacts.txt");
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Please enter the first name of the contact you would like to delete: ");
+//        String inputContact = sc.nextLine();
+//        try {
+//            List<String> names = Files.readAllLines(p);
+//            for (String name : names) {
+//                String[] splitString = name.split(" ");
+//                if (splitString[0].equalsIgnoreCase(inputContact)) {
+//                    names.remove(name);
+//                    Files.write(p, names);
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        displayAll();
+//    }
+
     public static void deleteContact() {
-        Path testFilePath = Paths.get("FileIo", "contacts.txt");
+//        Path testFilePath = Paths.get("src", "fileIoLecture", "test.txt");
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter the first name of the contact you would like to delete: ");
         String inputContact = sc.nextLine();
         try {
-            List<String> names = Files.readAllLines(testFilePath);
-            for (String name : names) {
-                String[] splitString = name.split(" ");
-                if (splitString[0].contains(inputContact)) {
-                    names.remove(name);
-                    Files.write(testFilePath, names);
-                }
-            }
+            List<String> names = Files.readAllLines(p);
+            names.remove(inputContact);
+            Files.write(p, names);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 }

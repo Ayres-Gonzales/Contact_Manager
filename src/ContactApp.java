@@ -72,7 +72,7 @@ public class ContactApp {
     }
 }
 
-//
-//    Marge Simpson | 210-222-2222
-//        Homer Simpson | 210-444-4444
-//        Bart Simpson | 210-333-3333
+
+//Marge Simpson | 210-222-2222
+//Homer Simpson | 210-444-4444
+//Bart Simpson | 210-333-3333
