@@ -40,6 +40,7 @@ public class ContactApp {
                 break;
 
             case 5:
+                System.out.println("See you later!");
                 continueRunning = false;
                 break;
         }
@@ -71,3 +72,14 @@ public class ContactApp {
         return response;
     }
 }
+
+//Marge Simpson 210-444-4444
+//Bart Simpson 210-333-3333
+//Lisa Simpson 210-555-5555
+//Maggie Simpson 210-888-8888
+//Homer Simpson 210-222-2222
+//Bumblebee Man 210-555-2222
+//Disco Stew 512-222-2222
+//Duff Man 830-533-9982
+//Rich Texan 210-534-8933
+//Apu Nahasapeemapetilon 830-282-8282

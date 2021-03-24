@@ -28,6 +28,7 @@ public class Console {
 
     }
 
+
 /// Adds a new contact
 
     public static void addNewContact() {
@@ -73,7 +74,7 @@ public class Console {
         System.out.println("Please enter the first name of the contact you would like to delete: ");
         String inputContact = sc.nextLine();
         try {
-            List<String> lines = Files.readAllLines(testFilePath);
+            List<String> lines = Files.readAllLines(testFilePath); //declare a list
             for (String line : lines) {
                 String[] splitString = line.split(" ");
                 if (splitString[0].equalsIgnoreCase(inputContact)) {
