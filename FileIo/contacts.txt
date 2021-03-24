@@ -1,5 +1,6 @@
-Homer Simpson | 210-444-4444
-Bart Simpson | 210-333-3333
-Lisa Simpson | 210-555-5555
-Maggie Simpson | 210-888-8888
-rAlpH wiggum 2341234
+Bart Simpson 210-333-3333
+Lisa Simpson 210-555-5555
+Maggie Simpson 210-888-8888
+Homer Simpson 210-222-2222
+nelson muntz 334322
+ralph wiggum 123
