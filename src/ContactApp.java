@@ -7,6 +7,8 @@ public class ContactApp {
 
     public static void main(String[] args) throws IOException {
 
+
+
         boolean running = true;
 
         while (running) {
@@ -32,7 +34,7 @@ public class ContactApp {
                 break;
 
             case 3:
-                Console.modifyExistingContact();
+                Console.searchForContact();
                 break;
 
             case 4:
