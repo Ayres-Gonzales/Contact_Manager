@@ -1,8 +1,5 @@
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.io.*;
+import java.nio.file.*;
 import java.util.*;
 
 public class Console {
@@ -68,24 +65,49 @@ public class Console {
 
 /// Deletes a contact
 
-    public static void deleteContact() throws IOException {
-        Path testFilePath = Paths.get(String.valueOf(p));
+//    public static void deleteContact() throws IOException {
+//        Path testFilePath = Paths.get(String.valueOf(p));
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Please enter the first name of the contact you would like to delete: ");
+//        String inputContact = sc.nextLine();
+//        try {
+//            List<String> lines = Files.readAllLines(testFilePath); //declare a list
+//            List<String> lines1 = Files.readAllLines(testFilePath);
+//            for (String line : lines) {
+//                String[] splitString = line.split(" ");
+//                if (splitString[0].equalsIgnoreCase(inputContact)) {
+//                    lines.remove(line);
+//                }
+//                Files.write(testFilePath, lines1);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        displayAll();
+//    }
+
+    public static void deleteContact() throws IOException{
+        File inputFile = new File(String.valueOf(p));
+        File tempFile = new File("myTempFile.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+        String currentLine;
+        String lineToRemove;
+        System.out.print("Enter the name of the contact you wish to delete: ");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter the first name of the contact you would like to delete: ");
         String inputContact = sc.nextLine();
-        try {
-            List<String> lines = Files.readAllLines(testFilePath); //declare a list
-            for (String line : lines) {
-                String[] splitString = line.split(" ");
-                if (splitString[0].equalsIgnoreCase(inputContact)) {
-                    lines.remove(line);
-                }
-                Files.write(testFilePath, lines);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        lineToRemove = inputContact;
+        while((currentLine = reader.readLine()) != null) {
+            String trimmedLine = currentLine.trim();
+            if(trimmedLine.startsWith(lineToRemove)) continue;
+            System.out.println(trimmedLine);
+
+            writer.write((currentLine) + System.getProperty("line.separator"));
         }
-        displayAll();
+        writer.close();
+        reader.close();
+        Files.move(tempFile.toPath(), inputFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        System.out.println("Contact was deleted");
     }
 }
 
